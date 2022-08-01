@@ -156,11 +156,12 @@ namespace OH_MY_GRADE
                 for (int j = i + 1; j < _count; j++)
                 {
                     var current = GetNodeByIndex(i);
-                    int.TryParse(current.Data.ToString(), out int c);
                     var next = GetNodeByIndex(j);
-                    int.TryParse(next.Data.ToString(), out int n);
 
-                    if (c > n)
+                    var a = current.Data as IComparable;
+                    var b = next.Data as IComparable;
+
+                    if (a.CompareTo(b) == 1)
                     {
                         Swap(current, next);
                     }
@@ -188,10 +189,12 @@ namespace OH_MY_GRADE
             for (int i = minIndex; i <= maxIndex; i++)
             {
                 var current = GetNodeByIndex(i);
-                int.TryParse(current.Data.ToString(), out int c); 
-                int.TryParse(GetNodeByIndex(maxIndex).Data.ToString(), out int n);
+                var next = GetNodeByIndex(maxIndex);
 
-                if (c < n)
+                var a = current.Data as IComparable;
+                var b = next.Data as IComparable;
+
+                if (a.CompareTo(b) == -1)
                 {
                     pivot++;
                     Swap(GetNodeByIndex(pivot), current);
