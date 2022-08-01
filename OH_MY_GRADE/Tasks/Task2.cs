@@ -54,7 +54,7 @@ public class Task2
         }
 
         var numberList = new SinglyLinkedList<int>();
-        var numberListCount = 10;
+        var numberListCount = 1000;
         
         for (int i = 0; i < numberListCount; i++)
         {
@@ -67,15 +67,8 @@ public class Task2
             Console.Write($"{item} ");
         }
 
-        //Console.WriteLine("\nSimple Sorted number list:");
-        //numberList.SimpleSort();
-        //foreach (var item in numberList)
-        //{
-        //    Console.Write($"{item} ");
-        //}
-
-        Console.WriteLine("\nQuick sorted number list:");
-        numberList.QuickSort(0, numberList.Count - 1);
+        Console.WriteLine("\nSimple Sorted number list:");
+        numberList.SimpleSort();
         foreach (var item in numberList)
         {
             Console.Write($"{item} ");

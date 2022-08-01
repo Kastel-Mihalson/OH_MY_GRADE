@@ -151,59 +151,25 @@ namespace OH_MY_GRADE
 
         public void SimpleSort()
         {
+            var minItem = _head;
+            var current = _head.Next;
+
             for (int i = 0; i < _count; i++)
             {
                 for (int j = i + 1; j < _count; j++)
                 {
-                    var current = GetNodeByIndex(i);
-                    var next = GetNodeByIndex(j);
-
-                    var a = current.Data as IComparable;
-                    var b = next.Data as IComparable;
+                    var a = minItem.Data as IComparable;
+                    var b = current.Data as IComparable;
 
                     if (a.CompareTo(b) == 1)
                     {
-                        Swap(current, next);
+                        Swap(minItem, current);
                     }
+                    current = current.Next;
                 }
+                minItem = minItem.Next;
+                current = minItem.Next;
             }
-        }
-
-        public void QuickSort(int minIndex, int maxIndex)
-        {
-            if (minIndex >= maxIndex)
-            {
-                return;
-            }
-
-            int pivotIndex = GetPivotIndex(minIndex, maxIndex);
-
-            QuickSort(minIndex, pivotIndex - 1);
-            QuickSort(pivotIndex + 1, maxIndex);
-        }
-
-        private int GetPivotIndex(int minIndex, int maxIndex)
-        {
-            int pivot = minIndex - 1;
-
-            for (int i = minIndex; i <= maxIndex; i++)
-            {
-                var current = GetNodeByIndex(i);
-                var next = GetNodeByIndex(maxIndex);
-
-                var a = current.Data as IComparable;
-                var b = next.Data as IComparable;
-
-                if (a.CompareTo(b) == -1)
-                {
-                    pivot++;
-                    Swap(GetNodeByIndex(pivot), current);
-                }
-            }
-            pivot++;
-            Swap(GetNodeByIndex(pivot), GetNodeByIndex(maxIndex));
-
-            return pivot;
         }
 
         public IEnumerator<T> GetEnumerator()
