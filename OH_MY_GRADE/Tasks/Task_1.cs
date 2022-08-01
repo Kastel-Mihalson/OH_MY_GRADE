@@ -1,6 +1,6 @@
 ﻿using OH_MY_GRADE;
 
-public class Task1
+public class Task_1
 {
     public void Example()
     {

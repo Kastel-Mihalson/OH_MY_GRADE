@@ -3,7 +3,7 @@
 /// <summary>
 /// Реализация колцевого односвязного списка 
 /// </summary>
-public class Task2
+public class Task_2
 {
     public void Example()
     {
