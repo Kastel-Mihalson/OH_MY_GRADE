@@ -186,14 +186,15 @@ namespace OH_MY_GRADE
             int pivot = minIndex - 1;
 
             for (int i = minIndex; i <= maxIndex; i++)
-            {  
-                int.TryParse(GetNodeByIndex(i).Data.ToString(), out int c); 
+            {
+                var current = GetNodeByIndex(i);
+                int.TryParse(current.Data.ToString(), out int c); 
                 int.TryParse(GetNodeByIndex(maxIndex).Data.ToString(), out int n);
 
                 if (c < n)
                 {
                     pivot++;
-                    Swap(GetNodeByIndex(pivot), GetNodeByIndex(i));
+                    Swap(GetNodeByIndex(pivot), current);
                 }
             }
             pivot++;

@@ -58,7 +58,7 @@ public class Task2
         
         for (int i = 0; i < numberListCount; i++)
         {
-            numberList.Add(new Random().Next(0, numberListCount));
+            numberList.Add(new Random().Next(0, numberListCount * 5));
         }
 
         Console.WriteLine("\nNumber list:");
